@@ -1,1 +1,28 @@
 @import "bootstrap";
+body {
+  background-color: #f6f1e9;
+}
+.front_page_carousel {
+  display: grid;
+  height: 650px;
+  width: 75%;
+  margin: auto;
+}
+
+.greeting {
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: bold;
+  color: #3c2a21;
+}
+p {
+  margin-top: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}
+// :root {
+//     --base-color: #F6F1E9;
+//     --low-color: #CACACA;
+//     --mid-color: #E5BA73;
+//     --accent-color: #4F200D;
