@@ -7,6 +7,10 @@
   --accent-color: #4F200D;
 }
 
+* {
+  font-family: Montserrat;
+}
+
 .navigation {
   position: fixed;
   background-color: var(--low-color);
@@ -48,4 +52,28 @@ a {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+
+body {
+  background-color: var(--base-color);
+}
+
+.front_page_carousel {
+  display: grid;
+  height: 650px;
+  width: 75%;
+  margin: auto;
+}
+
+.greeting {
+  text-align: center;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+p {
+  margin-top: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
 }
