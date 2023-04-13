@@ -1,18 +1,22 @@
 @import "bootstrap";
 
-:root { 
-  --base-color: #F6F1E9;
-  --low-color: #CACACA;
-  --mid-color: #E5BA73;
-  --accent-color: #4F200D;
+:root {
+  --base-color: #f6f1e9;
+  --low-color: #cacaca;
+  --mid-color: #e5ba73;
+  --accent-color: #4f200d;
 }
 
 * {
   font-family: Montserrat;
 }
 
+.page {
+  position: relative;
+  min-height: 100vh;
+}
 .navigation {
-  position: fixed;
+  position: relative;
   background-color: var(--low-color);
   color: var(--accent-color);
   z-index: 1000;
@@ -21,27 +25,26 @@
 }
 
 a {
-  color: var(--accent-color)
+  color: var(--accent-color);
 }
 
 .logo {
   height: 3em;
   width: 3em;
-  object-fit: 'cover';
+  object-fit: "cover";
   border: 2px solid var(--accent-color);
   border-radius: 10px;
 }
 
 .hamburger {
   background-color: var(--mid-color);
-  border: 2px solid var(--accent-color)
+  border: 2px solid var(--accent-color);
 }
 
 .content {
   padding-top: 12vh;
   padding-bottom: 2rem;
   min-height: 92vh;
-  position: relative;
 }
 
 .footer {
@@ -52,6 +55,8 @@ a {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -86,4 +91,9 @@ p {
 
 .card {
   border-radius: 10px;
+}
+
+h1 {
+  padding: 10px;
+  text-align: center;
 }
