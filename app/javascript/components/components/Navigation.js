@@ -23,7 +23,7 @@ const Navigation = ({
             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPm4C_IqRo2vS2vDduOn0RKpWAsZUHNI3o5em60RgdsE508xvUBiNUWfGHYPWre534pc&usqp=CAU'
           />
         </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} />
+        <NavbarToggler className='hamburger' onClick={toggleNavbar} />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>

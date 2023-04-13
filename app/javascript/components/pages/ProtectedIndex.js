@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProtectedIndex = () => {
   return (
-    <div>ProtectedIndex</div>
+    <div className='content'>ProtectedIndex</div>
   )
 }
 
