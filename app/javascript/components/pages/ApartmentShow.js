@@ -1,25 +1,35 @@
 import React, { useState } from 'react'
-import { NavLink,
+import {
+  NavLink,
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-  Button, } from 'reactstrap'
-  import { useNavigate , useParams,} from 'react-router-dom'
+  Button,
+} from 'reactstrap'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const ApartmentShow = ({apartments}) => {
-const navigate = useNavigate()
-let {id} = useParams()
-if (-1 === apartments?.find((apartment) => apartment.id === +id)){
-  navigate("/not_found") }
-  const [currentApartment, setCurrentApartment] = useState( apartments?.find((apartment) => apartment.id === +id))
-  const [activeIndex, setActiveIndex] = useState( apartments?.findIndex((apartment) => apartment.id === +id))
+const ApartmentShow = ({ apartments }) => {
+  const navigate = useNavigate()
+  let { id } = useParams()
+
+  if (-1 === apartments?.find((apartment) => apartment.id === +id)) {
+    navigate("/not_found")
+  }
+
+  const [currentApartment, setCurrentApartment] = useState(
+    apartments?.find((apartment) => apartment.id === +id)
+  )
+  const [activeIndex, setActiveIndex] = useState(
+    apartments?.findIndex((apartment) => apartment.id === +id)
+  )
   const [animating, setAnimating] = useState(false)
+
   const next = () => {
     if (animating) return
-    const nextIndex = activeIndex === apartments.length - 1 ? 0 : 
-    activeIndex + 1
+    const nextIndex =
+      activeIndex === apartments.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
     setCurrentApartment(apartments[nextIndex])
   }
@@ -30,6 +40,7 @@ if (-1 === apartments?.find((apartment) => apartment.id === +id)){
     setActiveIndex(nextIndex)
     setCurrentApartment(apartments[nextIndex])
   }
+
   const goToIndex = (newIndex) => {
     if (animating) return
     setActiveIndex(newIndex)
@@ -45,59 +56,55 @@ if (-1 === apartments?.find((apartment) => apartment.id === +id)){
       >
         <img class="img-fluid" src={apartment.image} alt={apartment.street} />
         <CarouselCaption
-        captionHeader={`${apartment.street} ${apartment.city}, ${apartment.state}`} 
+          captionHeader={`${apartment.street} ${apartment.city}, ${apartment.state}`}
           captionText={`$${apartment.price}`}
         />
       </CarouselItem>
     )
   })
-return (
-  <div className='content'>
-<Carousel className='showCarousel'
+
+  return (
+    <div className="content">
+      <Carousel
+        className="showCarousel"
+        activeIndex={activeIndex}
+        next={next}
+        previous={previous}
+        interval={false}
+      >
+        <CarouselIndicators
+          items={apartments}
           activeIndex={activeIndex}
-          next={next}
-          previous={previous}
-          interval={false}
-        >
-          <CarouselIndicators
-            items={apartments}
-            activeIndex={activeIndex}
-            onClickHandler={goToIndex}
-          />
-          {slides}
-          <CarouselControl
-            direction="prev"
-            directionText="Previous"
-            onClickHandler={previous}
-          />
-          <CarouselControl
-            direction="next"
-            directionText="Next"
-            onClickHandler={next}
-          />
-        </Carousel>
-<div className='description'>
-    <ul>
-  <li>Address: {currentApartment.street}, {currentApartment.city}, {currentApartment.state} </li>
-  <li>Manager: {currentApartment.manager} </li>
-  <li>Email: {currentApartment.email} </li>
-  <li>Price: ${currentApartment.price}</li>
-  <li>Bedrooms: {currentApartment.bedrooms}</li>
-  <li>Bathrooms: {currentApartment.bathroom}</li>
-  <li>Pets: {currentApartment.pets}</li>
-   </ul>
-</div>
+          onClickHandler={goToIndex}
+        />
+        {slides}
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+        />
+      </Carousel>
+      <div className="description">
+        <ul>
+          <li>
+            Address: {currentApartment.street}, {currentApartment.city},{" "}
+            {currentApartment.state}
+          </li>
+          <li>Manager: {currentApartment.manager} </li>
+          <li>Email: {currentApartment.email} </li>
+          <li>Price: ${currentApartment.price}</li>
+          <li>Bedrooms: {currentApartment.bedrooms}</li>
+          <li>Bathrooms: {currentApartment.bathroom}</li>
+          <li>Pets: {currentApartment.pets}</li>
+        </ul>
+      </div>
 
-  <a href= "/apartmentindex">
-    Back to all apartments 
- </a>
-
-
-
-
-
-
-  </div>
-)
+      <a href="/apartmentindex">Back to all apartments</a>
+    </div>
+  )
 }
-export default ApartmentShow
