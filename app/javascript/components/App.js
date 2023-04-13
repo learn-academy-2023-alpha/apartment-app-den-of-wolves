@@ -10,18 +10,11 @@ import ApartmentEdit from './pages/ApartmentEdit'
 import ProtectedIndex from './pages/ProtectedIndex'
 import NotFound from './pages/NotFound'
 
-
-const App = ({
-  logged_in,
-  current_user,
-  new_user_route,
-  sign_in_route,
-  sign_out_route
-}) => {
+const App = (props) => {
   return (
     <>
     <BrowserRouter>
-        <Header />
+        <Header {...props}/>
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/apartmentindex" element={<ApartmentIndex />} />

@@ -2,7 +2,7 @@ import React from 'react'
 
 const ApartmentIndex = () => {
   return (
-    <div>ApartmentIndex</div>
+    <div className='content'>ApartmentIndex</div>
   )
 }
 
