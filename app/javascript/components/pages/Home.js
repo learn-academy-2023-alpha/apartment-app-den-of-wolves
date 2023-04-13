@@ -2,7 +2,7 @@ import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
 const Home = () => {
   return (
-    <>
+    <div className='content'>
       <div className="greeting">
         <h1>Welcome to Big Ballerz Condos!</h1>
       </div>
@@ -50,7 +50,7 @@ const Home = () => {
         high-end condos and apartments. Explore our website today and start
         living your best life.
       </p>
-    </>
+    </div>
   );
 };
 

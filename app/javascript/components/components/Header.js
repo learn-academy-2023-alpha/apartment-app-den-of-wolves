@@ -1,8 +1,11 @@
 import React from 'react'
+import Navigation from './Navigation'
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <div>Header</div>
+    <>
+      <Navigation {...props} />
+    </>
   )
 }
 

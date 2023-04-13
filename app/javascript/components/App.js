@@ -12,7 +12,6 @@ import NotFound from './pages/NotFound'
 import { useEffect } from 'react'
 import mockApt from '../mockApt'
 
-
 const App = (props) => {
 
   const [apartments, setApartments] = useState(mockApt)
