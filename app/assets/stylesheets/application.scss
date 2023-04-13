@@ -77,3 +77,13 @@ p {
   margin-right: 15%;
   text-align: center;
 }
+
+.apartments {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-items: center;
+}
+
+.card {
+  border-radius: 10px;
+}
