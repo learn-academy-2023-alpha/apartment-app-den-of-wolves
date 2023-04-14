@@ -31,24 +31,13 @@ const App = (props) => {
       <BrowserRouter>
         <Header {...props} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/apartmentindex"
-            element={<ApartmentIndex apartments={apartments} />}
-          />
-          <Route path="/apartmentshow" element={<ApartmentShow />} />
-          <Route path="/apartmentnew" element={<ApartmentNew />} />
-          <Route path="/apartmentedit" element={<ApartmentEdit />} />
-          <Route
-            path="/protectedindex"
-            element={
-              <ProtectedIndex
-                apartments={apartments}
-                current_user={props.current_user}
-              />
-            }
-          />
-          <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments} />} />
+            <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments}  />} />
+            <Route path="/apartmentnew" element={<ApartmentNew />} />
+            <Route path="/apartmentedit" element={<ApartmentEdit />} />
+            <Route path="/protectedindex" element={<ProtectedIndex apartments={apartments} current_user={props.current_user} />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
