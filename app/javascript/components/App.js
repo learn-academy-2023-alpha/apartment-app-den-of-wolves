@@ -10,7 +10,7 @@ import ApartmentEdit from "./pages/ApartmentEdit";
 import ProtectedIndex from "./pages/ProtectedIndex";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
-import mockApt from "../mockApt";
+import mockApt from "./mockApt";
 
 const App = (props) => {
   const [apartments, setApartments] = useState(mockApt);
@@ -26,6 +26,19 @@ const App = (props) => {
       .catch((error) => console.log(error));
   };
 
+  const createApartment = (apartment) => {
+    fetch("/apartments", {
+        body: JSON.stringify(apartment),
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((error) => console.log(errors))
+  }
+
   return (
     <div className="page">
       <BrowserRouter>
@@ -33,8 +46,8 @@ const App = (props) => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments} />} />
-            <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments}  />} />
-            <Route path="/apartmentnew" element={<ApartmentNew />} />
+            <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
+            <Route path="/apartmentnew" element={<ApartmentNew current_user={props.current_user} createApartment={createApartment} />} />
             <Route path="/apartmentedit" element={<ApartmentEdit />} />
             <Route path="/protectedindex" element={<ProtectedIndex apartments={apartments} current_user={props.current_user} />} />
             <Route path="*" element={<NotFound />} />
