@@ -54,7 +54,7 @@ const ApartmentShow = ({ apartments }) => {
         onExited={() => setAnimating(false)}
         key={apartment.id}
       >
-        <img class="img-fluid" src={apartment.image} alt={apartment.street} />
+        <img className="img-fluid" src={apartment.image} alt={apartment.street} />
         <CarouselCaption
           captionHeader={`${apartment.street} ${apartment.city}, ${apartment.state}`}
           captionText={`$${apartment.price}`}
@@ -108,3 +108,5 @@ const ApartmentShow = ({ apartments }) => {
     </div>
   )
 }
+
+export default ApartmentShow
